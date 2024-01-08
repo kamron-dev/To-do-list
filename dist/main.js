@@ -1,1 +1,1 @@
-console.log("awesome!");
+(()=>{let e=((e,t,o,s=1)=>({title:"Do the dishes",desc:"Need to wash the dishes that are in the sink",dueDate:"Tomorrow",priority:s}))();console.table(e)})();
