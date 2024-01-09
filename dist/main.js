@@ -1,1 +1,0 @@
-(()=>{const e=[];var t;t=((e,t,o,a=1,i=!1)=>({id:Date.now(),title:e,desc:t,dueDate:o,priority:a,completed:i}))("Milk","Buy some milk for the cat","Some day",0),e.push(t),console.table(e)})();

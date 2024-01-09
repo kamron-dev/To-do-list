@@ -12,23 +12,22 @@ const addToDo = (toDo) => {
     toDos.push(toDo);
 }
 
-const toDos = [];
-
-addToDo(createToDo("Milk", "Buy some milk for the cat", "Some day", 0,))
-
-
 const priorities = {
-    0: "very important",
-    1: "important",
-    2: "not important"
+    "very": "very important",
+    "important": "important",
+    "not": "not important",
 };
 
 
+const toDos = [];
 
-// let newToDo = createToDo("Do the dishes", "Need to wash the dishes that are in the sink", "Tomorrow");
-// let anotherToDo = createToDo("Buy water", "Need to buy two 18l water bottles", "In two days")
+// addToDo(createToDo("Milk", "Buy some milk for the cat", "Some day", priorities.very));
+// addToDo(createToDo("Reading", "Read the book that I recently bought", "This evening", priorities.important));
+// addToDo(createToDo("Water", "Buy some water", "Next week", priorities.not, true));
 
-console.table(toDos);
+
+
+
 
 
 
