@@ -1,1 +1,1 @@
-(()=>{let e=((e,t,o,s=1)=>({title:"Do the dishes",desc:"Need to wash the dishes that are in the sink",dueDate:"Tomorrow",priority:s}))();console.table(e)})();
+(()=>{const e=[];var t;t=((e,t,o,a=1,i=!1)=>({id:Date.now(),title:e,desc:t,dueDate:o,priority:a,completed:i}))("Milk","Buy some milk for the cat","Some day",0),e.push(t),console.table(e)})();
