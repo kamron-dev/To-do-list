@@ -6,7 +6,7 @@ const newDo = createToDo("Milk", "Buy some milk for the cat", "Some day", priori
 const anotherDo = createToDo("Writing", "Write some text to my book", "Today", priorities.not, true);
 
 
-addToDoObj(newDo, "home");
+addToDoObj(newDo);
 addToDoObj(anotherDo, "default");
 
 

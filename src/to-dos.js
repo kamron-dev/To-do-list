@@ -7,8 +7,9 @@ const toDosObj = {
 };
 
 // Function to add to-dos to toDos object
-const addToDoObj = (toDo, project) => {
+const addToDoObj = (toDo, project = "default") => {
     toDosObj[project].push(toDo);
 };
+
 
 export { toDosObj, addToDoObj };
