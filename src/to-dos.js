@@ -1,7 +1,14 @@
-// Array that stores to-dos
-const toDosArray = {};
-
-// Function to add to-dos to toDos array
-const addToDo = (toDo) => {
-    toDosArray.push(toDo);
+// Obj that stores to-dos arrays
+const toDosObj = {
+    "default": [],
+    "home": [],
+    "word": [],
+    "gym": []
 };
+
+// Function to add to-dos to toDos object
+const addToDoObj = (toDo, project) => {
+    toDosObj[project].push(toDo);
+};
+
+export { toDosObj, addToDoObj };
