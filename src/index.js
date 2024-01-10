@@ -1,15 +1,15 @@
 import { toDosObj, addToDoObj } from "./to-dos";
 import { createToDo, priorities } from "./createToDo";
-import renderPage from "./UI";
+import anything from "./UI";
 
-renderPage();
+anything();
 
 const newDo = createToDo("Milk", "Buy some milk for the cat", "Some day", priorities.very);
 const anotherDo = createToDo("Writing", "Write some text to my book", "Today", priorities.not, true);
 
 
 addToDoObj(newDo);
-addToDoObj(anotherDo, "default");
+addToDoObj(anotherDo);
 
 
 console.table(toDosObj["home"]);
