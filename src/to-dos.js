@@ -3,7 +3,6 @@ const toDosObj = {
     "default": [],
     "home": [],
     "work": [],
-    "gym": []
 };
 
 // Function to add to-dos to toDos object

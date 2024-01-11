@@ -1,6 +1,6 @@
 import { toDosObj, addToDoObj } from "./to-dos";
 import { createToDo, priorities } from "./createToDo";
-import renderUI from "./UI";
+import {renderUI, renderProjects} from "./UI";
 
 
 const newDo = createToDo("Milk", "Buy some milk for the cat", "Some day", priorities.very);
@@ -16,6 +16,4 @@ console.table(toDosObj["default"]);
 
 console.log(toDosObj)
 
-
-
-renderUI();
+renderProjects(toDosObj);
