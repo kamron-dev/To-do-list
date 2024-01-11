@@ -2,7 +2,7 @@
 const toDosObj = {
     "default": [],
     "home": [],
-    "word": [],
+    "work": [],
     "gym": []
 };
 
