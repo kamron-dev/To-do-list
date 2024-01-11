@@ -18,6 +18,7 @@ body {
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr 4fr;
     height: 100vh;
+    font: normal;
 }
 
 #header {
@@ -36,10 +37,17 @@ body {
 #sidebar {
     border: 1px solid var(--sidebar-color);
     background-color: var(--sidebar-color);
+    
 }
 
 #main {
     border: 1px solid var(--main-color);
     background-color: var(--main-color);
 
+}
+
+footer {
+    background-color: var(--header-color);
+    grid-column: 1 / span 2;
+    text-align: center;
 }
