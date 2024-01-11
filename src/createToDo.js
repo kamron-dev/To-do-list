@@ -18,11 +18,6 @@ const priorities = {
 };
 
 
-
-// addToDo(createToDo("Milk", "Buy some milk for the cat", "Some day", priorities.very));
-// addToDo(createToDo("Reading", "Read the book that I recently bought", "This evening", priorities.important));
-// addToDo(createToDo("Water", "Buy some water", "Next week", priorities.not, true));
-
 export { createToDo, priorities };
 
 

@@ -40,6 +40,20 @@ body {
     
 }
 
+#projects-div {
+    display: flex;
+    flex-direction: column;
+}
+
+#projects-div>button {
+    font-family: 'Dela Gothic One', sans-serif;
+    
+}
+
+div#projects-div > h3 {
+    margin-left: 15px;
+}
+
 #main {
     border: 1px solid var(--main-color);
     background-color: var(--main-color);
