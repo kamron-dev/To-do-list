@@ -16,9 +16,8 @@ body {
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 1fr 4fr 0.4fr;
     height: 100vh;
-    font: normal;
 }
 
 #header {
@@ -37,6 +36,8 @@ body {
 #sidebar {
     border: 1px solid var(--sidebar-color);
     background-color: var(--sidebar-color);
+    grid-row: 2;
+    display: grid;
     
 }
 
@@ -45,14 +46,15 @@ body {
     flex-direction: column;
 }
 
-#projects-div>button {
+#projects-div > button {
     font-family: 'Dela Gothic One', sans-serif;
     
 }
 
-div#projects-div > h3 {
+div#projects-div > h3, div#to-dos-div > h3 {
     margin-left: 15px;
 }
+
 
 #main {
     border: 1px solid var(--main-color);
