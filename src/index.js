@@ -1,6 +1,6 @@
 import { toDosObj, addToDoObj, addNewProject } from "./to-dos";
 import { createToDo, priorities } from "./createToDo";
-import { renderUI, renderProjects } from "./UI";
+import { createMainDiv, renderProjects } from "./UI";
 import { alertDate } from "./dates";
 
 // creating two new todos with createToDo function
@@ -19,4 +19,8 @@ console.log(toDosObj)
 
 // rendering the projects from the object to the projects-div
 renderProjects(toDosObj);
+
+
+//rendering the mainDiv into the main 
+createMainDiv();
 

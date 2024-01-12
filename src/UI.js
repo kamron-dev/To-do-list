@@ -1,9 +1,10 @@
-export function renderUI() {
-    const header = document.getElementById("header");
-    const sidebar = document.getElementById("sidebar");
+export function createMainDiv() {
     const main = document.getElementById("main");
+    const mainDiv = document.createElement("div");
+    mainDiv.setAttribute("id", "mainDiv");
+    main.appendChild(mainDiv);
 
-
+    return main
 };
 // Function to render the projects to the DOM (into the projects-div), exported to use in index.js
 export function renderProjects(projects) {
@@ -19,6 +20,7 @@ export function renderProjects(projects) {
 
     return projectsDiv;
 };
+
 
 /* Helper function that creates buttons from object keys so 
 that the function above only has one responsibility (Solid) */
