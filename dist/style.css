@@ -66,6 +66,10 @@ div#projects-div > h3, div#to-dos-div > h3 {
     flex-wrap: wrap;
 }
 
+#mainHeader {
+    text-align: center;
+}
+
 #mainDiv {
     border: 2px solid red;
     width: 80%;
