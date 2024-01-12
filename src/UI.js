@@ -5,7 +5,7 @@ export function renderUI() {
 
 
 };
-
+// Function to render the projects to the DOM (into the projects-div), exported to use in index.js
 export function renderProjects(projects) {
     const projectsDiv = document.querySelector("#projects-div")
     const projectsKeys = Object.keys(projects);
@@ -20,6 +20,8 @@ export function renderProjects(projects) {
     return projectsDiv;
 };
 
+/* Helper function that creates buttons from object keys so 
+that the function above only has one responsibility (Solid) */
 function createButtons(keys, divToAppendTo) {
     keys.forEach(key => {
         const button = document.createElement("button");
@@ -27,4 +29,4 @@ function createButtons(keys, divToAppendTo) {
         divToAppendTo.appendChild(button);
     });
     return divToAppendTo;
-}
+};

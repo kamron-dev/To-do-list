@@ -1,5 +1,5 @@
 //Function that creates to-dos
-const createToDo = (title, desc, dueDate, priority = "important", completed = false) => {
+export const createToDo = (title, desc, dueDate, priority = "important", completed = false) => {
     return {
         id : Date.now(),
         title,
@@ -11,14 +11,14 @@ const createToDo = (title, desc, dueDate, priority = "important", completed = fa
 };
 
 // Object that holds priorities
-const priorities = {
+export const priorities = {
     "very": "very important",
     "important": "important",
     "not": "not important",
 };
 
 
-export { createToDo, priorities };
+
 
 
 
