@@ -1,5 +1,3 @@
-import { toDosObj } from "./to-dos";
-
 //Function to create the div inside the main part of the screen
 export function createMainDiv() {
     const main = document.getElementById("main");
@@ -44,19 +42,18 @@ export function displayProjects() {
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             mainHeader.textContent = button.textContent
-            displayToDos(button.value);
+            
         })
     })
 };
 
-function displayToDos(name) {
-    let newP = document.createElement("p");
-    mainDiv.innerHTML = "";
-    newP.innerHTML = toDosObj[name];
-    
-    mainDiv.appendChild(newP);
-    return mainDiv;
+export function renderToDos() {
+    const main = document.querySelector("#main");
+    alert(main);
 };
+
+renderToDos();
+
 
 
 
