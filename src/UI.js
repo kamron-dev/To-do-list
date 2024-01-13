@@ -1,3 +1,5 @@
+import { toDosObj } from "./to-dos";
+
 //Function to create the div inside the main part of the screen
 export function createMainDiv() {
     const main = document.getElementById("main");
@@ -47,41 +49,14 @@ export function displayProjects() {
     })
 };
 
-// function displayToDos(name) {
-//     let newP = document.createElement("p");
-//     mainDiv.innerHTML = "";
-//     newP.innerHTML = toDosObj[name];
+function displayToDos(name) {
+    let newP = document.createElement("p");
+    mainDiv.innerHTML = "";
+    newP.innerHTML = toDosObj[name];
     
-//     mainDiv.appendChild(newP);
-//     return mainDiv;
-// };
-
-// Obj that stores to-dos arrays and project names
-
-export const toDosObj = {
-    "default": [],
-    "home": [],
-    "work": [],
+    mainDiv.appendChild(newP);
+    return mainDiv;
 };
-
-// Function to add to-dos to toDos object
-
-export const addToDoObj = (toDo, project = "default") => {
-    toDosObj[project].push(toDo);
-    return toDosObj;
-};
-
-// Function to add new projects
-
-export const addNewProject = (projectName) => {
-    toDosObj[projectName] = [];
-    return toDosObj;
-}
-
-
-
-
-
 
 
 
