@@ -10,19 +10,35 @@ export function createMainDiv() {
     return { main, mainDiv }
 };
 // Function to render the projects to the DOM as buttons (into the projects-div), exported to use in index.js
-export function renderProjectsToButtons(projects) {
-    const projectsDiv = document.querySelector("#projects-div")
+export function createButtonsForEachProjectOnSidebar(projects) {
+    const projectsDiv = document.querySelector("#projects-div");
     const projectsKeys = Object.keys(projects);
+    const projectValues = Object.values(projects);
 
     //Clear out the projects div first ALWAYS CLEAR OUT BEFORE ADDING NEW
     projectsDiv.innerHTML = "";
 
+    //Creating buttons from toDosObj keys
     projectsKeys.forEach(key => {
         const button = document.createElement("button");
         button.classList.add("projects-list-button");
         button.textContent = key;
         projectsDiv.appendChild(button);
     });
+
+    Object.keys(projects).forEach(key => {
+        const arrays = projects[key];
+        const valueDiv = document.createElement("div");
+        valueDiv.innerHTML = `<strong>${key}:</strong> ${arrays.join(', ')}`;
+        mainDiv.appendChild(valueDiv);
+    })
+    // projectValues.forEach(key => {
+    //     const valueDiv = document.createElement("div");
+    //     valueDiv.innerHTML = projects[key];
+    //     mainDiv.appendChild(valueDiv);
+    //     // console.log(key)
+    // });
+    
 
     return projectsDiv;
 };
@@ -44,19 +60,14 @@ export function displayProjects() {
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             mainHeader.textContent = button.textContent
-            displayToDos(button.value);
+            
         })
     })
 };
 
-function displayToDos(name) {
-    let newP = document.createElement("p");
-    mainDiv.innerHTML = "";
-    newP.innerHTML = toDosObj[name];
-    
-    mainDiv.appendChild(newP);
-    return mainDiv;
-};
+
+
+
 
 
 

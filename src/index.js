@@ -1,5 +1,5 @@
 import { createToDo, priorities, toDosObj, addToDoObj, addNewProject } from "./createToDo";
-import { createMainDiv, renderProjectsToButtons, createHeader, displayProjects } from "./UI";
+import { createMainDiv, createButtonsForEachProjectOnSidebar, createHeader, displayProjects } from "./UI";
 // import { alertDate } from "./dates";
 
 // creating three new todos with createToDo function
@@ -18,14 +18,15 @@ console.table(toDosObj["default"]);
 
 console.log(toDosObj)
 
-// rendering the projects from the object to the projects-div
-renderProjectsToButtons(toDosObj);
 
 // creating the header to the mainDiv
 createHeader("Lika i Ya");
 
 //rendering the mainDiv into the main 
 createMainDiv();
+
+// rendering the projects from the object to the projects-div
+createButtonsForEachProjectOnSidebar(toDosObj);
 
 displayProjects();
 
