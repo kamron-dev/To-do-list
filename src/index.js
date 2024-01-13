@@ -3,7 +3,7 @@ import { createToDo, priorities } from "./createToDo";
 import { createMainDiv, renderProjectsToButtons, createHeader, displayProjects } from "./UI";
 // import { alertDate } from "./dates";
 
-// creating two new todos with createToDo function
+// creating three new todos with createToDo function
 const newDo = createToDo("Milk", "Buy some milk for the cat", "Some day", priorities.very);
 const anotherDo = createToDo("Writing", "Write some text to my book", "Today", priorities.not, true);
 const thirdToDo = createToDo("Buy cat food","Buy some kitekat", "Today", priorities.very);
@@ -27,4 +27,7 @@ createHeader("Lika i Ya");
 
 //rendering the mainDiv into the main 
 createMainDiv();
+
+displayProjects();
+
 
