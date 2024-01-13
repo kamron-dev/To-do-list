@@ -1,4 +1,4 @@
-import { toDosObj } from "./to-dos";
+import { toDosObj } from "./createToDo";
 
 //Function to create the div inside the main part of the screen
 export function createMainDiv() {

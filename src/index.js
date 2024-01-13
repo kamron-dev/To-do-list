@@ -1,5 +1,4 @@
-import { toDosObj, addToDoObj, addNewProject } from "./to-dos";
-import { createToDo, priorities } from "./createToDo";
+import { createToDo, priorities, toDosObj, addToDoObj, addNewProject } from "./createToDo";
 import { createMainDiv, renderProjectsToButtons, createHeader, displayProjects } from "./UI";
 // import { alertDate } from "./dates";
 
