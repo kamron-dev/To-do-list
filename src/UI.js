@@ -13,7 +13,7 @@ export function createMainDiv() {
 export function createButtonsForEachProjectOnSidebar(projects) {
     const projectsDiv = document.querySelector("#projects-div");
     const projectsKeys = Object.keys(projects);
-    const projectValues = Object.values(projects);
+    // const projectValues = Object.values(projects);
 
     //Clear out the projects div first ALWAYS CLEAR OUT BEFORE ADDING NEW
     projectsDiv.innerHTML = "";
@@ -26,18 +26,27 @@ export function createButtonsForEachProjectOnSidebar(projects) {
         projectsDiv.appendChild(button);
     });
 
-    Object.keys(projects).forEach(key => {
-        const arrays = projects[key];
+    projectsKeys.forEach(key => {
+        const array = projects[key];
         const valueDiv = document.createElement("div");
-        valueDiv.innerHTML = `<strong>${key}:</strong> ${arrays.join(', ')}`;
+        array.forEach(toDo => {
+            Object.keys(toDo).forEach(key => {
+                const ul = document.createElement("ul");
+                const li = document.createElement("li");
+                const p = document.createElement("p");
+                if (key === "desc") {
+                    li.innerHTML = toDo[key];
+                }
+                p.innerHTML = `${toDo[key]}`
+                valueDiv.appendChild(p);
+                console.log(key, toDo[key]);
+            })
+            
+        })
+        
         mainDiv.appendChild(valueDiv);
     })
-    // projectValues.forEach(key => {
-    //     const valueDiv = document.createElement("div");
-    //     valueDiv.innerHTML = projects[key];
-    //     mainDiv.appendChild(valueDiv);
-    //     // console.log(key)
-    // });
+    
     
 
     return projectsDiv;
