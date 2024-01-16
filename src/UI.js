@@ -65,27 +65,39 @@ export function createHeader(name) {
 };
 
 export function displayProjects(projects) {
+    // Choosing all the buttons with projectnames 
     const buttons = document.querySelectorAll(".projects-list-button");
-    // const projectsKeys = Object.keys(projects);
+    // Iterating through those buttons
     buttons.forEach(button => {
+        // adding click event listeners to them
         button.addEventListener("click", () => {
+            // updating the header
             mainHeader.textContent = button.textContent;
             console.log(projects[button.textContent]);
+            // creating a ul element to hold all the toDos inside
             const ul = document.createElement("ul");
+            // iterating through each projects array that hold toDo objects
             projects[button.textContent].forEach(item => {
+                //creating a li element to hold each toDo objects
                 const li = document.createElement("li");
+                // iterating through each toDo obj key
                 Object.keys(item).forEach(key => {
+                    // if the key equals description
                     if (key === "desc") {
+                        // create a p element to hold the text
                         const p = document.createElement("p");
+                        // putting the value of the key inside the p element
                         p.innerHTML = item[key];
+                        // appending the p element with info to the li element
                         li.appendChild(p);
                     }
                 })
-    
+                // appending the li element to the parent ul element created on line 78
                 ul.appendChild(li);
             })
-            
+            // clearing out the main div before rendering the content inside
             mainDiv.innerHTML = "";
+            //appending the ul inside the mainDiv
             mainDiv.appendChild(ul);
             
         })
