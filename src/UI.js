@@ -26,26 +26,26 @@ export function createButtonsForEachProjectOnSidebar(projects) {
         projectsDiv.appendChild(button);
     });
 
-    projectsKeys.forEach(key => {
-        const array = projects[key];
-        const valueDiv = document.createElement("div");
-        array.forEach(toDo => {
-            Object.keys(toDo).forEach(key => {
-                const ul = document.createElement("ul");
-                const li = document.createElement("li");
-                const p = document.createElement("p");
-                if (key === "desc") {
-                    li.innerHTML = toDo[key];
-                }
-                p.innerHTML = `${toDo[key]}`
-                valueDiv.appendChild(p);
-                console.log(key, toDo[key]);
-            })
+    // projectsKeys.forEach(key => {
+    //     const array = projects[key];
+    //     const valueDiv = document.createElement("div");
+    //     array.forEach(toDo => {
+    //         Object.keys(toDo).forEach(key => {
+    //             const ul = document.createElement("ul");
+    //             const li = document.createElement("li");
+    //             const p = document.createElement("p");
+    //             if (key === "desc") {
+    //                 li.innerHTML = toDo[key];
+    //             }
+    //             p.innerHTML = `${toDo[key]}`
+    //             valueDiv.appendChild(p);
+    //             console.log(key, toDo[key]);
+    //         })
             
-        })
+    //     })
         
-        mainDiv.appendChild(valueDiv);
-    })
+    //     mainDiv.appendChild(valueDiv);
+    // })
     
     
 
@@ -64,11 +64,29 @@ export function createHeader(name) {
 
 };
 
-export function displayProjects() {
+export function displayProjects(projects) {
     const buttons = document.querySelectorAll(".projects-list-button");
+    // const projectsKeys = Object.keys(projects);
     buttons.forEach(button => {
         button.addEventListener("click", () => {
-            mainHeader.textContent = button.textContent
+            mainHeader.textContent = button.textContent;
+            console.log(projects[button.textContent]);
+            const ul = document.createElement("ul");
+            projects[button.textContent].forEach(item => {
+                const li = document.createElement("li");
+                Object.keys(item).forEach(key => {
+                    if (key === "desc") {
+                        const p = document.createElement("p");
+                        p.innerHTML = item[key];
+                        li.appendChild(p);
+                    }
+                })
+    
+                ul.appendChild(li);
+            })
+            
+            mainDiv.innerHTML = "";
+            mainDiv.appendChild(ul);
             
         })
     })

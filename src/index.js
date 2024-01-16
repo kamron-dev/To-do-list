@@ -28,6 +28,6 @@ createMainDiv();
 // rendering the projects from the object to the projects-div
 createButtonsForEachProjectOnSidebar(toDosObj);
 
-displayProjects();
+displayProjects(toDosObj);
 
 
