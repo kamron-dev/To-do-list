@@ -44,11 +44,25 @@ body {
 #projects-div {
     display: flex;
     flex-direction: column;
+    padding: 2px;
 }
 
 #projects-div > button {
     font-family: 'Dela Gothic One', sans-serif;
     
+}
+
+form.input-field>input {
+    width: inherit;
+}
+
+form.input-field>button {
+    width: inherit;
+}
+
+form.input-field {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr;
 }
 
 div#projects-div > h3, div#to-dos-div > h3 {
@@ -76,6 +90,16 @@ div#projects-div > h3, div#to-dos-div > h3 {
     height: 60vh;
     
 }
+
+.li-element {
+    border-bottom: 1px solid var(--header-color);
+}
+
+.li-element>p {
+    display: inline-block;
+    margin: 5px 2rem;
+}
+
 
 footer {
     background-color: var(--header-color);
