@@ -1,4 +1,5 @@
 import { toDosObj } from "./createToDo";
+import { addNewProject } from "./createToDo";
 
 //Function to create the div inside the main part of the screen
 export function createMainDiv() {
@@ -9,14 +10,18 @@ export function createMainDiv() {
     
     return { main, mainDiv }
 };
+
 // Function to render the projects to the DOM as buttons (into the projects-div), exported to use in index.js
 export function createButtonsForEachProjectOnSidebar(projects) {
     const projectsDiv = document.querySelector("#projects-div");
     const projectsKeys = Object.keys(projects);
-    // const projectValues = Object.values(projects);
 
     //Clear out the projects div first ALWAYS CLEAR OUT BEFORE ADDING NEW
     projectsDiv.innerHTML = "";
+    const projectHeader = document.createElement("h3");
+    projectHeader.textContent = "Projects";
+
+    projectsDiv.appendChild(projectHeader);
 
     //Creating buttons from toDosObj keys
     projectsKeys.forEach(key => {
@@ -25,6 +30,8 @@ export function createButtonsForEachProjectOnSidebar(projects) {
         button.textContent = key;
         projectsDiv.appendChild(button);
     });
+
+    addProjectButton("+");
 
     return projectsDiv;
 };
@@ -57,10 +64,11 @@ export function displayProjects(projects) {
             projects[button.textContent].forEach(item => {
                 //creating a li element to hold each toDo objects
                 const li = document.createElement("li");
+                li.classList.add("li-element");
                 // iterating through each toDo obj key
                 Object.keys(item).forEach(key => {
                     // if the key equals description
-                    if (key === "desc") {
+                    if (key === "title" || key === "desc" || key === "dueDate") {
                         // create a p element to hold the text
                         const p = document.createElement("p");
                         // putting the value of the key inside the p element
@@ -80,6 +88,71 @@ export function displayProjects(projects) {
         })
     })
 };
+
+function addProjectButton(buttonName) {
+    const projectsDiv = document.querySelector("#projects-div");
+    const addButton = document.createElement("button");
+    addButton.textContent = buttonName;
+    addButton.setAttribute("id", "add-new-project-btn")
+    
+    projectsDiv.appendChild(addButton);
+    
+    addButton.addEventListener("click", () => {
+        const form = document.createElement("form");
+        form.classList.add("input-field");
+
+        const inputField = document.createElement("input");
+        inputField.setAttribute("type", "text");
+        inputField.setAttribute("id", "project-input");
+        inputField.setAttribute("maxlength", "24");
+        inputField.setAttribute("placeholder", "Enter project name");
+
+        const addProjectButton = document.createElement("button");
+        addProjectButton.setAttribute("type", "button");
+        addProjectButton.setAttribute("id", "add-project-btn");
+        addProjectButton.textContent = "Add";
+
+        const cancelButton = document.createElement("button");
+        cancelButton.setAttribute("type", "button");
+        cancelButton.setAttribute("id", "cancel-add-project-btn");
+        cancelButton.textContent = "Cancel";
+        
+        form.appendChild(inputField);
+        form.appendChild(addProjectButton);
+        form.appendChild(cancelButton);
+
+        projectsDiv.appendChild(form);
+        
+        addButton.setAttribute("disabled", true);
+        handleNewProjects();
+    })
+    
+};
+
+export function handleNewProjects() {
+    const addBtn = document.getElementById("add-project-btn");
+    const cancelBtn = document.querySelector("#cancel-add-project-btn");
+
+    addBtn.addEventListener("click", () => {
+        const inputtedName = document.getElementById("project-input").value;
+        addNewProject(inputtedName);
+        console.table(toDosObj);
+    
+    });
+    
+    cancelBtn.addEventListener("click", () => {
+        const form = document.querySelector(".input-field");
+        const button = document.querySelector("#add-new-project-btn");
+        if (form) form.remove();
+        button.removeAttribute("disabled");
+
+    })
+};
+
+
+
+
+
 
 
 
