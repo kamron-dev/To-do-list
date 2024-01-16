@@ -1,4 +1,4 @@
-//Function that creates to-dos
+//Factory function that creates to-do objects
 export const createToDo = (title, desc, dueDate, priority = "important", completed = false) => {
     return {
         id : Date.now(),

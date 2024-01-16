@@ -26,29 +26,6 @@ export function createButtonsForEachProjectOnSidebar(projects) {
         projectsDiv.appendChild(button);
     });
 
-    // projectsKeys.forEach(key => {
-    //     const array = projects[key];
-    //     const valueDiv = document.createElement("div");
-    //     array.forEach(toDo => {
-    //         Object.keys(toDo).forEach(key => {
-    //             const ul = document.createElement("ul");
-    //             const li = document.createElement("li");
-    //             const p = document.createElement("p");
-    //             if (key === "desc") {
-    //                 li.innerHTML = toDo[key];
-    //             }
-    //             p.innerHTML = `${toDo[key]}`
-    //             valueDiv.appendChild(p);
-    //             console.log(key, toDo[key]);
-    //         })
-            
-    //     })
-        
-    //     mainDiv.appendChild(valueDiv);
-    // })
-    
-    
-
     return projectsDiv;
 };
 

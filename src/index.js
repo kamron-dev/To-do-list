@@ -25,7 +25,7 @@ createHeader("Lika i Ya");
 //rendering the mainDiv into the main 
 createMainDiv();
 
-// rendering the projects from the object to the projects-div
+// rendering the project names into buttons from the object to the projects-div
 createButtonsForEachProjectOnSidebar(toDosObj);
 
 displayProjects(toDosObj);
