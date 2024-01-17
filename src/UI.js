@@ -105,6 +105,7 @@ function addProjectButton(buttonName, projects) {
         inputField.setAttribute("id", "project-input");
         inputField.setAttribute("maxlength", "24");
         inputField.setAttribute("placeholder", "Enter project name");
+        inputField.setAttribute("autocomplete", "off");
 
         const addProjectButton = document.createElement("button");
         addProjectButton.setAttribute("type", "button");
