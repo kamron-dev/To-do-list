@@ -24,6 +24,14 @@ button {
     cursor: pointer;
 }
 
+#new-ToDo-btn {
+    width: 6rem;
+    height: 2rem;
+    position: absolute;
+    left: 70vw;
+    top: 20vh;
+}
+
 #header {
     grid-column: 1 / span 2;
     border: 1px solid var(--header-color);
