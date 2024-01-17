@@ -137,6 +137,7 @@ function handleNewProjects(projects) {
         addNewProject(inputtedName);
         console.table(toDosObj);
         createButtonsForEachProjectOnSidebar(projects);
+        displayProjects(projects);
     
     });
     
