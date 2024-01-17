@@ -31,8 +31,7 @@ export function createButtonsForEachProjectOnSidebar(projects) {
         projectsDiv.appendChild(button);
     });
 
-    addProjectButton("+");
-
+    addProjectButton("+", projects)
     return projectsDiv;
 };
 
@@ -89,7 +88,7 @@ export function displayProjects(projects) {
     })
 };
 
-function addProjectButton(buttonName) {
+export function addProjectButton(buttonName, projects) {
     const projectsDiv = document.querySelector("#projects-div");
     const addButton = document.createElement("button");
     addButton.textContent = buttonName;
@@ -124,12 +123,12 @@ function addProjectButton(buttonName) {
         projectsDiv.appendChild(form);
         
         addButton.setAttribute("disabled", true);
-        handleNewProjects();
+        handleNewProjects(projects);
     })
     
 };
 
-export function handleNewProjects() {
+function handleNewProjects(projects) {
     const addBtn = document.getElementById("add-project-btn");
     const cancelBtn = document.querySelector("#cancel-add-project-btn");
 
@@ -137,6 +136,7 @@ export function handleNewProjects() {
         const inputtedName = document.getElementById("project-input").value;
         addNewProject(inputtedName);
         console.table(toDosObj);
+        createButtonsForEachProjectOnSidebar(projects);
     
     });
     
