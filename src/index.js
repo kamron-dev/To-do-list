@@ -1,5 +1,5 @@
 import { createToDo, priorities, toDosObj, addToDoObj, addNewProject } from "./createToDo";
-import { createMainDiv, createButtonsForEachProjectOnSidebar, createHeader, displayProjects, addProjectButton } from "./UI";
+import { createMainDiv, createButtonsForEachProjectOnSidebar, createHeader, displayProjects } from "./UI";
 // import { alertDate } from "./dates";
 
 // creating three new todos with createToDo function

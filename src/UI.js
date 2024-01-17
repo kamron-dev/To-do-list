@@ -31,7 +31,7 @@ export function createButtonsForEachProjectOnSidebar(projects) {
         projectsDiv.appendChild(button);
     });
 
-    addProjectButton("+", projects)
+    addProjectButton("New project +", projects)
     return projectsDiv;
 };
 
@@ -88,7 +88,7 @@ export function displayProjects(projects) {
     })
 };
 
-export function addProjectButton(buttonName, projects) {
+function addProjectButton(buttonName, projects) {
     const projectsDiv = document.querySelector("#projects-div");
     const addButton = document.createElement("button");
     addButton.textContent = buttonName;
