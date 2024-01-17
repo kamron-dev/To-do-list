@@ -151,7 +151,14 @@ function handleNewProjects(projects) {
     })
 };
 
+function addNewToDoBtn() {
+    const button = document.createElement("button");
+    button.setAttribute("id", "new-ToDo-btn");
+    button.textContent = "add";
+    main.appendChild(button);
+};
 
+addNewToDoBtn();
 
 
 
