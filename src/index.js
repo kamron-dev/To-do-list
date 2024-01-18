@@ -3,9 +3,9 @@ import { createMainDiv, createButtonsForEachProjectOnSidebar, createHeader, disp
 // import { alertDate } from "./dates";
 
 // creating three new todos with createToDo function
-const newDo = createToDo("Milk", "Buy some milk for the cat", "Some day", priorities.very);
-const anotherDo = createToDo("Writing", "Write some text to my book", "Today", priorities.not, true);
-const thirdToDo = createToDo("Buy cat food", "Buy some kitekat", "Today", priorities.very);
+const newDo = createToDo("Milk", "Buy some milk for the cat", "12-02-2024", priorities.very);
+const anotherDo = createToDo("Writing", "Write some text to my book", "14-04-2024", priorities.not, true);
+const thirdToDo = createToDo("Buy cat food", "Buy some kitekat", "04-05-2024", priorities.very);
 
 
 // adding previously created todos to the object holding todos with the addToDoObj function
@@ -15,7 +15,7 @@ addToDoObj(thirdToDo);
 
 
 (function createPage() {
-    createHeader("Lika i Ya");
+    createHeader("Lika i ya");
     createMainDiv();
     createButtonsForEachProjectOnSidebar(toDosObj);
     displayProjects(toDosObj);

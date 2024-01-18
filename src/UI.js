@@ -156,6 +156,116 @@ function addNewToDoBtn() {
     button.setAttribute("id", "new-ToDo-btn");
     button.textContent = "add";
     main.appendChild(button);
+    button.addEventListener("click", () => {
+        const newDiv = document.createElement("div");
+        newDiv.setAttribute("id", "input-Div");
+        main.appendChild(newDiv);
+
+        // const toDoForm = document.createElement("form");
+        // toDoForm.setAttribute("id", "input-form");
+        // newDiv.appendChild(toDoForm);
+        createElAndAppend("input-Div", "form", {
+            "id": "input-form"
+        });
+
+        // const titleLabel = document.createElement("label");
+        // titleForm.setAttribute("for", "title-input");
+        // titleForm.textContent = "Title";
+        // toDoForm.appendChild(titleLabel);
+        const titleLabel = createElAndAppend("input-form", "label", {
+            "for": "title-input",
+
+        });
+        titleLabel.textContent = "Title";
+
+        // const titleInput = document.createElement("input");
+        // titleInput.setAttribute("type", "text");
+        // titleInput.setAttribute("id", "title-input");
+        // toDoForm.appendChild(titleInput);
+        
+        createElAndAppend("input-form", "input", {  //Title input
+            "type": "text",
+            "id": "title-input"
+        });
+
+        // const descLabel = document.createElement("label");
+        // descLabel.setAttribute("for", "desc-input");
+        // descLabel.textContent = "Description";
+        // toDoForm.appendChild(descLabel);
+        const descLabel = createElAndAppend("input-form", "label", {
+            "for": "desc-input"
+        });
+        descLabel.textContent = "Description";
+
+        // const descInput = document.createElement("textarea");
+        // descInput.setAttribute("id", "desc-input");
+        // descInput.setAttribute("rows", "5");
+        // toDoForm.appendChild(descInput);
+        createElAndAppend("input-form", "textarea", {
+            "id": "desc-input",
+            "rows": "5"
+        });
+
+        // const dateLebel = document.createElement("label");
+        // dateLebel.setAttribute("for", "date-input");
+        const dateLabel = createElAndAppend("input-form", "label", {
+            "for": "dueDate"
+        });
+        dateLabel.textContent = "Due date";
+
+        createElAndAppend("input-form", "input", {
+            "type": "date",
+            "id": "dueDate",
+            "required": true
+        });
+
+        const priorityLabel = createElAndAppend("input-form", "label", {
+            "for": "priority"
+        });
+        priorityLabel.textContent = "Priority";
+
+        createElAndAppend("input-form", "select", {
+            "id": "priority"
+        })
+
+        const very = createElAndAppend("priority", "option", {
+            "value": "very",
+
+        });
+        very.textContent = "Very Important";
+
+        const important = createElAndAppend("priority", "option", {
+            "value": "important",
+
+        });
+        important.textContent = "Important";
+
+        const not = createElAndAppend("priority", "option", {
+            "value": "not",
+
+        });
+        not.textContent = "Not Important";
+
+        
+        
+    });
+};
+
+//helper function
+function createElAndAppend(parentElId, type, attributes) { 
+    let newEl = document.createElement(type);
+    
+    for (let key in attributes) {
+        if (attributes.hasOwnProperty(key)) {
+            newEl.setAttribute(key, attributes[key]);
+        }
+    };
+
+    let parentEl = document.getElementById(parentElId);
+
+    parentEl.appendChild(newEl);
+    
+    return newEl;
 };
 
 addNewToDoBtn();
