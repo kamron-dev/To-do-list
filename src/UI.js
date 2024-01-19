@@ -1,5 +1,4 @@
-import { toDosObj } from "./createToDo";
-import { addNewProject } from "./createToDo";
+import { toDosObj, addNewProject, addToDoObj, createToDo } from "./createToDo";
 
 //Function to create the div inside the main part of the screen
 export function createMainDiv() {
@@ -57,6 +56,8 @@ export function displayProjects(projects) {
             // updating the header
             mainHeader.textContent = button.textContent;
             console.log(projects[button.textContent]);
+            // creating the button that shows up an input form
+            addNewToDoBtn();
             // creating a ul element to hold all the toDos inside
             const ul = document.createElement("ul");
             // iterating through each projects array that hold toDo objects
@@ -161,53 +162,36 @@ function addNewToDoBtn() {
         newDiv.setAttribute("id", "input-Div");
         main.appendChild(newDiv);
 
-        // const toDoForm = document.createElement("form");
-        // toDoForm.setAttribute("id", "input-form");
-        // newDiv.appendChild(toDoForm);
         createElAndAppend("input-Div", "form", {
             "id": "input-form"
         });
 
-        // const titleLabel = document.createElement("label");
-        // titleForm.setAttribute("for", "title-input");
-        // titleForm.textContent = "Title";
-        // toDoForm.appendChild(titleLabel);
+        
         const titleLabel = createElAndAppend("input-form", "label", {
             "for": "title-input",
 
         });
         titleLabel.textContent = "Title";
 
-        // const titleInput = document.createElement("input");
-        // titleInput.setAttribute("type", "text");
-        // titleInput.setAttribute("id", "title-input");
-        // toDoForm.appendChild(titleInput);
         
         createElAndAppend("input-form", "input", {  //Title input
             "type": "text",
             "id": "title-input"
         });
 
-        // const descLabel = document.createElement("label");
-        // descLabel.setAttribute("for", "desc-input");
-        // descLabel.textContent = "Description";
-        // toDoForm.appendChild(descLabel);
+       
         const descLabel = createElAndAppend("input-form", "label", {
             "for": "desc-input"
         });
         descLabel.textContent = "Description";
 
-        // const descInput = document.createElement("textarea");
-        // descInput.setAttribute("id", "desc-input");
-        // descInput.setAttribute("rows", "5");
-        // toDoForm.appendChild(descInput);
+        
         createElAndAppend("input-form", "textarea", {
             "id": "desc-input",
             "rows": "5"
         });
 
-        // const dateLebel = document.createElement("label");
-        // dateLebel.setAttribute("for", "date-input");
+        
         const dateLabel = createElAndAppend("input-form", "label", {
             "for": "dueDate"
         });
@@ -216,7 +200,7 @@ function addNewToDoBtn() {
         createElAndAppend("input-form", "input", {
             "type": "date",
             "id": "dueDate",
-            "required": true
+            //required
         });
 
         const priorityLabel = createElAndAppend("input-form", "label", {
@@ -246,12 +230,47 @@ function addNewToDoBtn() {
         });
         not.textContent = "Not Important";
 
+        // creating two buttons 
+
+        const addButton = createElAndAppend("input-form", "button", {
+            "id": "addToDoBtn",
+            "type": "button"
+        });
+        addButton.textContent = "Add To-do";
+
+        const cancelBtn = createElAndAppend("input-form", "button", {
+            "id": "cancelBtn",
+            "type": "button"
+        });
+        cancelBtn.textContent = "Cancel";
         
+        handleButtons();
+
+    });
+
+    
+};
+
+function handleButtons() {
+    const addButton = document.getElementById("addToDoBtn");
+    const cancelBtn = document.getElementById("cancelBtn");
+
+    const titleValue = document.getElementById("title-input").value;
+    const descValue = document.getElementById("desc-input").value;
+    const dueDateValue = document.getElementById("dueDate").value;
+    const priorityValue = document.getElementById("priority").value;
+    const projectValue = document.getElementById("mainHeader").value;
+
+
+    addButton.addEventListener("click", () => {
+        addToDoObj(createToDo(titleValue, descValue, dueDateValue, priorityValue), projectValue);
         
     });
 };
 
-//helper function
+
+
+//helper function to create elements and append them to the parent element
 function createElAndAppend(parentElId, type, attributes) { 
     let newEl = document.createElement(type);
     
@@ -268,7 +287,7 @@ function createElAndAppend(parentElId, type, attributes) {
     return newEl;
 };
 
-addNewToDoBtn();
+
 
 
 
