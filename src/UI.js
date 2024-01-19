@@ -9,7 +9,7 @@ export function createMainDiv() {
     
     return { main, mainDiv }
 };
-
+console.log(toDosObj);
 // Function to render the projects to the DOM as buttons (into the projects-div), exported to use in index.js
 export function createButtonsForEachProjectOnSidebar(projects) {
     const projectsDiv = document.querySelector("#projects-div");
@@ -57,7 +57,7 @@ export function displayProjects(projects) {
             mainHeader.textContent = button.textContent;
             console.log(projects[button.textContent]);
             // creating the button that shows up an input form
-            addNewToDoBtn();
+            addNewToDoBtn(projects);
             // creating a ul element to hold all the toDos inside
             const ul = document.createElement("ul");
             // iterating through each projects array that hold toDo objects
@@ -152,7 +152,7 @@ function handleNewProjects(projects) {
     })
 };
 
-function addNewToDoBtn() {
+export function addNewToDoBtn() {
     const button = document.createElement("button");
     button.setAttribute("id", "new-ToDo-btn");
     button.textContent = "add";
@@ -251,21 +251,29 @@ function addNewToDoBtn() {
     
 };
 
-function handleButtons() {
+function handleButtons(projects) {
     const addButton = document.getElementById("addToDoBtn");
     const cancelBtn = document.getElementById("cancelBtn");
 
-    const titleValue = document.getElementById("title-input").value;
-    const descValue = document.getElementById("desc-input").value;
-    const dueDateValue = document.getElementById("dueDate").value;
-    const priorityValue = document.getElementById("priority").value;
-    const projectValue = document.getElementById("mainHeader").value;
+    const title = document.getElementById("title-input");
+    const desc = document.getElementById("desc-input");
+    const dueDate = document.getElementById("dueDate");
+    const priority = document.getElementById("priority");
+    const project = document.getElementById("mainHeader");
 
+    const inputDiv = document.getElementById("input-Div");
 
     addButton.addEventListener("click", () => {
-        addToDoObj(createToDo(titleValue, descValue, dueDateValue, priorityValue), projectValue);
+        addToDoObj(createToDo(title.value, desc.value, dueDate.value, priority.value), project.textContent);
+        createButtonsForEachProjectOnSidebar(projects)
+        inputDiv.remove();
+        
         
     });
+
+    cancelBtn.addEventListener("click", () => {
+        inputDiv.remove();
+    })
 };
 
 
