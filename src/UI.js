@@ -1,5 +1,5 @@
 import { toDosObj, addNewProject, addToDoObj, createToDo } from "./createToDo";
-
+import { format } from "date-fns";
 //Function to create the div inside the main part of the screen
 export function createMainDiv() {
     const main = document.getElementById("main");
@@ -263,7 +263,7 @@ function handleButtons() {
     const inputDiv = document.getElementById("input-Div");
 
     addButton.addEventListener("click", () => {
-        addToDoObj(createToDo(title.value, desc.value, dueDate.value, priority.value), project.textContent);
+        addToDoObj(createToDo(title.value, desc.value, dueDate.value = format(Date.now(), "yyyy-MM-dd"), priority.value), project.textContent);
         inputDiv.remove();
     });
 
