@@ -255,17 +255,21 @@ function handleButtons() {
     const addButton = document.getElementById("addToDoBtn");
     const cancelBtn = document.getElementById("cancelBtn");
 
-    const titleValue = document.getElementById("title-input").value;
-    const descValue = document.getElementById("desc-input").value;
-    const dueDateValue = document.getElementById("dueDate").value;
-    const priorityValue = document.getElementById("priority").value;
-    const projectValue = document.getElementById("mainHeader").value;
-
+    const title = document.getElementById("title-input");
+    const desc = document.getElementById("desc-input");
+    const dueDate = document.getElementById("dueDate");
+    const priority = document.getElementById("priority");
+    const project = document.getElementById("mainHeader");
+    const inputDiv = document.getElementById("input-Div");
 
     addButton.addEventListener("click", () => {
-        addToDoObj(createToDo(titleValue, descValue, dueDateValue, priorityValue), projectValue);
-        
+        addToDoObj(createToDo(title.value, desc.value, dueDate.value, priority.value), project.textContent);
+        inputDiv.remove();
     });
+
+    cancelBtn.addEventListener("click", () => {
+        inputDiv.remove();
+    })
 };
 
 
