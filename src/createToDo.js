@@ -10,6 +10,12 @@ export const createToDo = (title, desc, dueDate, priority = "important", complet
     }
 };
 
+// Object that holds priorities
+export const priorities = {
+    "very": "very important",
+    "important": "important",
+    "not": "not important",
+};
 
 // Obj that stores to-dos arrays and project names
 
