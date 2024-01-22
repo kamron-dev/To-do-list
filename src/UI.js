@@ -24,9 +24,13 @@ export function createButtonsForEachProjectOnSidebar(projects) {
 
     //Creating buttons from toDosObj keys
     projectsKeys.forEach(key => {
-        const button = document.createElement("button");
+        const button = document.createElement("div");
         button.classList.add("projects-list-button");
+        const x = document.createElement("i");
+        x.textContent = "x"
+    
         button.textContent = key;
+        button.appendChild(x);
         projectsDiv.appendChild(button);
     });
 
@@ -55,7 +59,6 @@ export function displayProjects(projects) {
         button.addEventListener("click", () => {
             // updating the header
             mainHeader.textContent = button.textContent;
-            console.log(projects[button.textContent]);
             // creating the button that shows up an input form
             addNewToDoBtn();
             // creating a ul element to hold all the toDos inside
