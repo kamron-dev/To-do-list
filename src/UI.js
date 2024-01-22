@@ -1,4 +1,4 @@
-import { toDosObj, addNewProject, addToDoObj, createToDo } from "./createToDo";
+import { toDosObj, addNewProject, addToDoObj, createToDo, deleteToDo } from "./createToDo";
 import { format } from "date-fns";
 //Function to create the div inside the main part of the screen
 export function createMainDiv() {
@@ -55,13 +55,13 @@ export function displayProjects(projects) {
         button.addEventListener("click", () => {
             // updating the header
             mainHeader.textContent = button.textContent;
-            console.log(projects[button.textContent]);
+            
             // creating the button that shows up an input form
             addNewToDoBtn();
             // creating a ul element to hold all the toDos inside
             const ul = document.createElement("ul");
-            // iterating through each projects array that hold toDo objects
-            projects[button.textContent].forEach(item => {
+            // iterating through each project's array that hold toDo objects
+            projects[button.textContent].forEach((item, index) => {
                 //creating a li element to hold each toDo objects
                 const li = document.createElement("li");
                 li.classList.add("li-element");
@@ -72,11 +72,17 @@ export function displayProjects(projects) {
                         // create a p element to hold the text
                         const p = document.createElement("p");
                         // putting the value of the key inside the p element
-                        p.innerHTML = item[key];
+                        p.textContent = item[key];
                         // appending the p element with info to the li element
                         li.appendChild(p);
                     }
                 })
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "delete";
+                deleteBtn.addEventListener("click", () => {
+                    projects[button.textContent].splice(index, 1);
+                })
+                li.appendChild(deleteBtn);
                 // appending the li element to the parent ul element created on line 78
                 ul.appendChild(li);
             })
