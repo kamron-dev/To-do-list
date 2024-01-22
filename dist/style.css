@@ -139,22 +139,3 @@ label {
     text-align: center;
     margin-bottom: 5px;
 }
-
-.projects-list-button {
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.projects-list-button>i {
-    opacity: 0;
-    
-}
-
-.projects-list-button:hover i {
-    opacity: 1;
-    
-}
