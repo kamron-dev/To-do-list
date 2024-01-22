@@ -263,7 +263,7 @@ function handleButtons() {
     const inputDiv = document.getElementById("input-Div");
 
     addButton.addEventListener("click", () => {
-        addToDoObj(createToDo(title.value, desc.value, dueDate.value = format(Date.now(), "yyyy-MM-dd"), priority.value), project.textContent);
+        addToDoObj(createToDo(title.value, desc.value, dueDate.value = format(Date.now(), "MM-dd-yyyy"), priority.value), project.textContent);
         inputDiv.remove();
     });
 
