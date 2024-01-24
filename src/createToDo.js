@@ -16,14 +16,14 @@ export const createToDo = (title, desc, dueDate, priority = "important", complet
 // Obj that stores to-dos arrays and project names
 
 export const toDosObj = {
-    "default": [],
-    "home": [],
-    "work": [],
+    "Default": [],
+    "Home": [],
+    "Work": [],
 };
 
 // Function to add to-dos to toDos object
 
-export const addToDoObj = (toDo, project = "default") => {
+export const addToDoObj = (toDo, project = "Default") => {
     toDosObj[project].push(toDo);
     return toDosObj;
 };

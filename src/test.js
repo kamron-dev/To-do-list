@@ -1,6 +1,14 @@
 import { toDosObj, addNewProject, addToDoObj, createToDo, deleteToDo } from "./createToDo";
 import { format } from "date-fns";
-
+//Function to create the div inside the main part of the screen
+export function createMainDiv() {
+    const main = document.getElementById("main");
+    const mainDiv = document.createElement("div");
+    mainDiv.setAttribute("id", "mainDiv");
+    main.appendChild(mainDiv);
+    
+    return { main, mainDiv }
+};
 
 // Function to render the projects to the DOM as buttons (into the projects-div), exported to use in index.js
 export function createButtonsForEachProjectOnSidebar(projects) {
@@ -26,10 +34,20 @@ export function createButtonsForEachProjectOnSidebar(projects) {
     return projectsDiv;
 };
 
+// Function to create the mainDiv header that should be updated
+export function createHeader(name) {
+    const main = document.getElementById("main");
+    const mainHeader = document.createElement("h1");
+    mainHeader.textContent = name;
+    mainHeader.setAttribute("id", "mainHeader");
+    main.appendChild(mainHeader);
 
+    return { main, mainHeader };
+
+};
 
 export function displayProjects(projects) {
-    // Choosing all the buttons with project names 
+    // Choosing all the buttons with projectnames 
     const buttons = document.querySelectorAll(".projects-list-button");
     // Iterating through those buttons
     buttons.forEach(button => {
@@ -93,30 +111,28 @@ function addProjectButton(buttonName, projects) {
     
     addButton.addEventListener("click", () => {
         const form = document.createElement("form");
-        form.classList.add("input-field");  
-        form.setAttribute("id", "input-field");
+        form.classList.add("input-field");
 
-        const inputField = createElAndAppend("input-field", "input", {
-            "type": "text",
-            "id": "project-input",
-            "max-length": "24",
-            "placeholder": "Enter project name",
-            "autocomplete": "off"
-        });
-    
+        const inputField = document.createElement("input");
+        inputField.setAttribute("type", "text");
+        inputField.setAttribute("id", "project-input");
+        inputField.setAttribute("maxlength", "24");
+        inputField.setAttribute("placeholder", "Enter project name");
+        inputField.setAttribute("autocomplete", "off");
 
-        const addProjectButton = createElAndAppend("input-field", "button", {
-            "type": "button",
-            "id": "add-project-btn",
-
-        });
+        const addProjectButton = document.createElement("button");
+        addProjectButton.setAttribute("type", "button");
+        addProjectButton.setAttribute("id", "add-project-btn");
         addProjectButton.textContent = "Add";
 
-        const cancelButton = createElAndAppend("input-field", "button", {
-            "type": "button",
-            "id": "cancel-add-project-btn"
-        });
+        const cancelButton = document.createElement("button");
+        cancelButton.setAttribute("type", "button");
+        cancelButton.setAttribute("id", "cancel-add-project-btn");
         cancelButton.textContent = "Cancel";
+        
+        form.appendChild(inputField);
+        form.appendChild(addProjectButton);
+        form.appendChild(cancelButton);
 
         projectsDiv.appendChild(form);
         
@@ -286,60 +302,6 @@ function createElAndAppend(parentElId, type, attributes) {
     
     return newEl;
 };
-
-export function createDates() {
-    //const div = document.getElementById("to-dos-div");
-    
-    const all = createElAndAppend("to-dos-div", "button", {
-        "type": "button",
-        "id": "all-to-dos"
-    });
-    all.textContent = "All";
-
-    const today = createElAndAppend("to-dos-div", "button", {
-        "type": "button",
-        "id": "today-to-dos"
-    })
-    today.textContent = "Today";
-
-    const nextWeek = createElAndAppend("to-dos-div", "button", {
-        "type": "button",
-        "id": "next-week-to-dos"
-    })
-    nextWeek.textContent = "Next week";
-}
-
-export function handleDates(projects) {
-    const allBtn = document.getElementById("all-to-dos");
-    const todayBtn = document.getElementById("today-to-dos");
-    const nextWeekBtn = document.getElementById("next-week-to-dos");
-    const mainDiv = document.getElementById("mainDiv");
-    allBtn.addEventListener("click", () => {
-        const ul = document.createElement("ul");
-        for (const key in projects) {
-            projects[key].forEach(toDo => {
-                const li = document.createElement("li");
-                for (const name in toDo) {
-                    // const li = document.createElement("li");
-                    li.classList.add("li-element");
-
-                    if (name === "title" || name === "desc" || name === "dueDate") {
-                        const p = document.createElement("p");
-                        p.textContent = toDo[name];
-                        li.appendChild(p)
-                    }
-                    ul.appendChild(li);
-                }
-            })
-        }
-        mainDiv.innerHTML = "";
-        mainDiv.appendChild(ul);
-        
-        
-    })
-};
-
-
 
 
 

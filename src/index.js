@@ -1,5 +1,5 @@
 import { createToDo, toDosObj, addToDoObj } from "./createToDo";
-import { createMainDiv, createButtonsForEachProjectOnSidebar, createHeader, displayProjects } from "./UI";
+import { handleDates, createButtonsForEachProjectOnSidebar, createDates, displayProjects } from "./UI";
 // import { alertDate } from "./dates";
 
 // creating three new todos with createToDo function
@@ -15,8 +15,8 @@ addToDoObj(thirdToDo);
 
 
 (function createPage() {
-    createHeader("To do's");
-    createMainDiv();
+    createDates();
+    handleDates(toDosObj);
     createButtonsForEachProjectOnSidebar(toDosObj);
     displayProjects(toDosObj);
 })();
