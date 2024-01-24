@@ -15,7 +15,7 @@ addToDoObj(thirdToDo);
 
 
 (function createPage() {
-    createHeader("Lika i ya");
+    createHeader("To do's");
     createMainDiv();
     createButtonsForEachProjectOnSidebar(toDosObj);
     displayProjects(toDosObj);

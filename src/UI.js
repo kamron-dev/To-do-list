@@ -81,6 +81,10 @@ export function displayProjects(projects) {
                 deleteBtn.textContent = "delete";
                 deleteBtn.addEventListener("click", () => {
                     projects[button.textContent].splice(index, 1);
+                
+
+                    
+
                 })
                 li.appendChild(deleteBtn);
                 // appending the li element to the parent ul element created on line 78
@@ -94,6 +98,8 @@ export function displayProjects(projects) {
         })
     })
 };
+
+
 
 function addProjectButton(buttonName, projects) {
     const projectsDiv = document.querySelector("#projects-div");
@@ -296,7 +302,6 @@ function createElAndAppend(parentElId, type, attributes) {
     
     return newEl;
 };
-
 
 
 
