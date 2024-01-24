@@ -53,13 +53,13 @@ button {
     
 }
 
-#projects-div {
+#projects-div, #to-dos-div {
     display: flex;
     flex-direction: column;
     padding: 2px;
 }
 
-#projects-div > button {
+#projects-div > button, #to-dos-div > button {
     font-family: 'Dela Gothic One', sans-serif;
     
 }
