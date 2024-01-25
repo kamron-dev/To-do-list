@@ -320,7 +320,7 @@ export function handleDates(projects) {
             projects[key].forEach(toDo => {
                 const li = document.createElement("li");
                 for (const name in toDo) {
-                    // const li = document.createElement("li");
+                    
                     li.classList.add("li-element");
 
                     if (name === "title" || name === "desc" || name === "dueDate") {
