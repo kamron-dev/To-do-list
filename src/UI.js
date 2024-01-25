@@ -154,10 +154,10 @@ function addNewToDoBtn() {
 
     if (!existingButton) {
         const button = document.createElement("button");
-    button.setAttribute("id", "new-ToDo-btn");
-    button.textContent = "add";
-    main.appendChild(button);
-    button.addEventListener("click", () => {
+        button.setAttribute("id", "new-ToDo-btn");
+        button.textContent = "add";
+        main.appendChild(button);
+        button.addEventListener("click", () => {
         const newDiv = document.createElement("div");
         newDiv.setAttribute("id", "input-Div");
         main.appendChild(newDiv);
