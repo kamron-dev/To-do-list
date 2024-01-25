@@ -149,10 +149,13 @@ function handleNewProjects(projects) {
 };
 
 function addNewToDoBtn() {
-    const button = document.createElement("button");
+    const main = document.getElementById("main");
+    let existingButton = document.getElementById("new-ToDo-btn");
+
+    if (!existingButton) {
+        const button = document.createElement("button");
     button.setAttribute("id", "new-ToDo-btn");
     button.textContent = "add";
-
     main.appendChild(button);
     button.addEventListener("click", () => {
         const newDiv = document.createElement("div");
@@ -244,6 +247,7 @@ function addNewToDoBtn() {
         handleButtons();
 
     });
+    }
 
     
 };
