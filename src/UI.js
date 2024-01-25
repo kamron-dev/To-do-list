@@ -149,6 +149,7 @@ function handleNewProjects(projects) {
 };
 
 function addNewToDoBtn() {
+<<<<<<< HEAD
     const main = document.getElementById("main");
     let existingButton = document.getElementById("new-ToDo-btn");
 
@@ -158,6 +159,14 @@ function addNewToDoBtn() {
         button.textContent = "add";
         main.appendChild(button);
         button.addEventListener("click", () => {
+=======
+    const button = document.createElement("button");
+    button.setAttribute("id", "new-ToDo-btn");
+    button.textContent = "add";
+
+    main.appendChild(button);
+    button.addEventListener("click", () => {
+>>>>>>> parent of 629427a (only one add todo button is created now by checking if the existingButton is there already)
         const newDiv = document.createElement("div");
         newDiv.setAttribute("id", "input-Div");
         main.appendChild(newDiv);
@@ -247,7 +256,6 @@ function addNewToDoBtn() {
         handleButtons();
 
     });
-    }
 
     
 };
