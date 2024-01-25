@@ -152,6 +152,7 @@ function addNewToDoBtn() {
     const button = document.createElement("button");
     button.setAttribute("id", "new-ToDo-btn");
     button.textContent = "add";
+
     main.appendChild(button);
     button.addEventListener("click", () => {
         const newDiv = document.createElement("div");
@@ -314,10 +315,14 @@ export function handleDates(projects) {
     const todayBtn = document.getElementById("today-to-dos");
     const nextWeekBtn = document.getElementById("next-week-to-dos");
     const mainDiv = document.getElementById("mainDiv");
+    const h1 = document.getElementById("mainHeader");
+    const buttonToRemove = document.getElementById("new-ToDo-btn");
     allBtn.addEventListener("click", () => {
-        const ul = test2(projects);
+        const ul = test2(projects, null, null);
         mainDiv.innerHTML = "";
         mainDiv.appendChild(ul)
+        h1.textContent = allBtn.textContent;
+        alert(buttonToRemove);
     })
 };
 
