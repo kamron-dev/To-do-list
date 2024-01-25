@@ -1,11 +1,13 @@
-function showToDos(obj, project = null, date = null) {
+export function test2(obj, project = null, date = null) {
     // getting the mainDiv
-    const mainDiv = document.getElementById("mainDiv");
+    //const mainDiv = document.getElementById("mainDiv");
     const ul = document.createElement("ul");
     // clearing it out so it doesn't duplicate
     mainDiv.innerHTML = "";
-    // iterating through project names
-    for (const projectNames in obj) {
+    // if no projectspecified show all todos
+    if (!project) {
+        // iterating through project names
+        for (const projectNames in obj) {
         // iterating through each todo object in the projects
         obj[projectNames].forEach(toDo => {
             // creating li's to hold each todo
@@ -27,8 +29,12 @@ function showToDos(obj, project = null, date = null) {
             }
         })
     }
+    }
+    
     // appending the ul with todos to the mainDiv
-    mainDiv.appendChild(ul);
+    // mainDiv.appendChild(ul);
+    console.log("test2 working!")
+    return ul;
 
 }
 
