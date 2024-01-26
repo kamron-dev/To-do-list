@@ -1,8 +1,6 @@
 export function test2(obj, project = null, date = null) {
     // creating the ul that I will return afterwards to append to the div
     const ul = document.createElement("ul");
-    // clearing it out so it doesn't duplicate
-    mainDiv.innerHTML = "";
     // if no project specified show all todos
     if (!project && !date) {
         // iterating through project names
@@ -30,6 +28,7 @@ export function test2(obj, project = null, date = null) {
     }
     }
     else if (project && !date) {
+        // looping through the todo objects in the project name specified in the argument
         obj[project].forEach(toDo => {
             // creating li's to hold each todo
             const li = document.createElement("li");
@@ -51,9 +50,8 @@ export function test2(obj, project = null, date = null) {
         })
     }
     
-    // appending the ul with todos to the mainDiv
-    // mainDiv.appendChild(ul);
-    console.log("test2 working!")
+    console.log("test2 working!");
+    // returning the ul to append to the mainDiv
     return ul;
 
 }

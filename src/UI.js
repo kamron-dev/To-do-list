@@ -95,6 +95,7 @@ function addProjectButton(buttonName, projects) {
         const form = document.createElement("form");
         form.classList.add("input-field");  
         form.setAttribute("id", "input-field");
+        projectsDiv.appendChild(form);
 
         const inputField = createElAndAppend("input-field", "input", {
             "type": "text",
@@ -118,7 +119,7 @@ function addProjectButton(buttonName, projects) {
         });
         cancelButton.textContent = "Cancel";
 
-        projectsDiv.appendChild(form);
+        
         
         addButton.setAttribute("disabled", true);
         handleNewProjects(projects);
@@ -326,7 +327,7 @@ export function handleDates(projects) {
         mainDiv.innerHTML = "";
         mainDiv.appendChild(ul)
         h1.textContent = allBtn.textContent;
-        alert(buttonToRemove);
+        // alert(buttonToRemove);
     })
 };
 
