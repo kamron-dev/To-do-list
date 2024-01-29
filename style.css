@@ -105,6 +105,9 @@ div#projects-div > h3, div#to-dos-div > h3 {
 
 .li-element {
     border-bottom: 1px solid var(--header-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .li-element>p {
