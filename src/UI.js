@@ -38,7 +38,7 @@ export function displayProjects(projects) {
             mainDiv.innerHTML = "";
             mainDiv.appendChild(ul);
             h1.textContent = button.textContent;
-
+            addNewToDoBtn();
         })
     })
 }
@@ -284,14 +284,16 @@ export function handleDates(projects) {
     const nextWeekBtn = document.getElementById("next-week-to-dos");
     const mainDiv = document.getElementById("mainDiv");
     const h1 = document.getElementById("mainHeader");
-    const buttonToRemove = document.getElementById("new-ToDo-btn");
+    
     
     allBtn.addEventListener("click", () => {
         const ul = test2(projects, null, null);
         mainDiv.innerHTML = "";
         mainDiv.appendChild(ul)
         h1.textContent = allBtn.textContent;
-        // alert(buttonToRemove);
+
+        const buttonToRemove = document.getElementById("new-ToDo-btn");
+        if (buttonToRemove) buttonToRemove.remove();
     })
 };
 
