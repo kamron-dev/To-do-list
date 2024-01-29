@@ -142,3 +142,15 @@ label {
     text-align: center;
     margin-bottom: 5px;
 }
+
+.red-text {
+    color: red;
+}
+
+.blue-text {
+    color: blue;
+}
+
+.green-text {
+    color: green;
+}

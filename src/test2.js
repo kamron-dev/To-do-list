@@ -16,6 +16,12 @@ export function test2(obj, project = null, date = null) {
                 p.textContent = toDo[key];
                 //appending the ps as the li's child
                 li.appendChild(p);
+            };
+            if (key === "priority") {
+                if (toDo[key] === "very important") li.classList.add("red-text");
+                if (toDo[key] === "important") li.classList.add("blue-text");
+                  if (toDo[key] === "not important") li.classList.add("green-text");
+                
             }
         }
         const deleteButton = document.createElement("button");
