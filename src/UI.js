@@ -42,58 +42,7 @@ export function displayProjects(projects) {
         })
     })
 }
-// export function displayProjects(projects) {
-//     // Choosing all the buttons with project names 
-//     const buttons = document.querySelectorAll(".projects-list-button");
-//     // Iterating through those buttons
-//     buttons.forEach(button => {
-//         // adding click event listeners to them
-//         button.addEventListener("click", () => {
-//             // updating the header
-//             mainHeader.textContent = button.textContent;
-            
-//             // creating the button that shows up an input form
-//             addNewToDoBtn();
-//             // creating a ul element to hold all the toDos inside
-//             const ul = document.createElement("ul");
-//             // iterating through each project's array that hold toDo objects
-//             projects[button.textContent].forEach((item, index) => {
-//                 //creating a li element to hold each toDo objects
-//                 const li = document.createElement("li");
-//                 li.classList.add("li-element");
-//                 // iterating through each toDo obj key
-//                 Object.keys(item).forEach(key => {
-//                     // if the key equals description
-//                     if (key === "title" || key === "desc" || key === "dueDate") {
-//                         // create a p element to hold the text
-//                         const p = document.createElement("p");
-//                         // putting the value of the key inside the p element
-//                         p.textContent = item[key];
-//                         // appending the p element with info to the li element
-//                         li.appendChild(p);
-//                     }
-//                 })
-//                 const deleteBtn = document.createElement("button");
-//                 deleteBtn.textContent = "delete";
-//                 deleteBtn.addEventListener("click", () => {
-//                     projects[button.textContent].splice(index, 1);
-                
 
-                    
-
-//                 })
-//                 li.appendChild(deleteBtn);
-//                 // appending the li element to the parent ul element created on line 78
-//                 ul.appendChild(li);
-//             })
-//             // clearing out the main div before rendering the content inside
-//             mainDiv.innerHTML = "";
-//             //appending the ul inside the mainDiv
-//             mainDiv.appendChild(ul);
-            
-//         })
-//     })
-// };
 
 
 
@@ -336,6 +285,7 @@ export function handleDates(projects) {
     const mainDiv = document.getElementById("mainDiv");
     const h1 = document.getElementById("mainHeader");
     const buttonToRemove = document.getElementById("new-ToDo-btn");
+    
     allBtn.addEventListener("click", () => {
         const ul = test2(projects, null, null);
         mainDiv.innerHTML = "";

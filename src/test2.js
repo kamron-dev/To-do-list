@@ -10,32 +10,36 @@ export function test2(obj, project = null, date = null) {
         for (const key in toDo) {
             // if the key is title, desc, or dueDate
             if (["title", "desc", "dueDate"].includes(key)) {
-                // create a p element to holde the info
+                // create a p element to hold the info
                 const p = document.createElement("p");
                 // putting the info from the above into the p
                 p.textContent = toDo[key];
-                //appending the p as the li's child
+                //appending the ps as the li's child
                 li.appendChild(p);
             }
         }
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.addEventListener("click", () => {
-            // Remove the todo from the array
-            const index = obj[project].indexOf(toDo);
-            obj[project].splice(index, 1);
-            // Update the UI
-            ul.removeChild(li);
+            // find the project that contains the toDo item
+            const targetProject = Object.values(obj).find(project => project.includes(toDo));
+            if (targetProject) {
+                const index = targetProject.indexOf(toDo);
+                targetProject.splice(index, 1);
+                //ul.removeChild(li);
+                li.remove();
+            }
         });
         li.appendChild(deleteButton);
 
         
-        // appendind the li's to the ul
+        // appendind the li to the ul
         ul.appendChild(li);
     }
     
     
     // checking the conditions and adding the toDos accordingly
+
     // if no project or date specified
     if (!project && !date) {
         // loop through all the project names in the object
@@ -61,14 +65,7 @@ export function test2(obj, project = null, date = null) {
 
     console.log("test2 working!");
     return ul;
-}
+};
 
-function createDelBtn(li) {
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "delete";
-    deleteBtn.addEventListener("click", () => {
-        projects[button.textContent].splice(index, 1);
-    })
-    li.appendChild(deleteBtn);
-}
+
 
