@@ -304,7 +304,15 @@ function test2(obj, project = null, date = null) {
         // creating the li
         const li = document.createElement("li");
         li.classList.add("li-element");
-        // looping through the toDo obj that is passed as the argument 
+        
+        const tickMe = document.createElement("input");
+        tickMe.setAttribute("type", "checkbox");
+        tickMe.addEventListener("click", () => {
+            li.classList.toggle("job-done");
+        })
+        li.appendChild(tickMe);
+        
+        // looping through the toDo obj that is passed as the argument
         for (const key in toDo) {
             // if the key is title, desc, or dueDate
             if (["title", "desc", "dueDate"].includes(key)) {
@@ -318,7 +326,7 @@ function test2(obj, project = null, date = null) {
             if (key === "priority") {
                 if (toDo[key] === "very important") li.classList.add("red-text");
                 if (toDo[key] === "important") li.classList.add("blue-text");
-                  if (toDo[key] === "not important") li.classList.add("green-text");
+                if (toDo[key] === "not important") li.classList.add("green-text");
                 
             }
         }

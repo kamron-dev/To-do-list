@@ -154,3 +154,7 @@ label {
 .green-text {
     color: green;
 }
+
+.job-done {
+    text-decoration: line-through;
+}
