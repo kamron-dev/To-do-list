@@ -289,12 +289,12 @@ export function handleDates(projects) {
     allBtn.addEventListener("click", () => {
         const ul = test2(projects, null, null);
         mainDiv.innerHTML = "";
-        mainDiv.appendChild(ul)
+        mainDiv.appendChild(ul);
         h1.textContent = allBtn.textContent;
 
         const buttonToRemove = document.getElementById("new-ToDo-btn");
         if (buttonToRemove) buttonToRemove.remove();
-    })
+    });
 };
 
 
