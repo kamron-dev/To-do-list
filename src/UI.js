@@ -176,7 +176,7 @@ function addNewToDoBtn() {
         })
 
         const very = createElAndAppend("priority", "option", {
-            "value": "very",
+            "value": "very-important",
 
         });
         very.textContent = "Very Important";
@@ -188,7 +188,7 @@ function addNewToDoBtn() {
         important.textContent = "Important";
 
         const not = createElAndAppend("priority", "option", {
-            "value": "not",
+            "value": "not-important",
 
         });
         not.textContent = "Not Important";
@@ -283,7 +283,6 @@ export function handleDates(projects) {
     const nextWeekBtn = document.getElementById("next-week-to-dos");
     const mainDiv = document.getElementById("mainDiv");
     const h1 = document.getElementById("mainHeader");
-    const todayDate = format(Date.now(), "MM-dd-yyyy");
     
     allBtn.addEventListener("click", () => {
         const ul = test2(projects, null, null);
@@ -296,10 +295,11 @@ export function handleDates(projects) {
     });
 
     todayBtn.addEventListener("click", () => {
-        h1.textContent = todayBtn.textContent;
-        mainDiv.innerHTML = "";
+        const todayDate = format(Date.now(), "MM-dd-yyyy");
         const ul = test2(projects, null, todayDate);
-        alert(todayDate)
+        mainDiv.innerHTML = "";
+        mainDiv.appendChild(ul);
+        h1.textContent = todayBtn.textContent;
     })
 };
 
@@ -330,10 +330,8 @@ function test2(obj, project = null, date = null) {
                 //appending the ps as the li's child
                 li.appendChild(p);
             };
-            if (key === "priority") {
-                if (toDo[key] === "very important") li.classList.add("red-text");
-                if (toDo[key] === "important") li.classList.add("blue-text");
-                if (toDo[key] === "not important") li.classList.add("green-text");
+            if (toDo["priority"]) {
+                li.classList.add(toDo["priority"].toLowerCase() + "-text");
                 
             }
         }
@@ -381,7 +379,17 @@ function test2(obj, project = null, date = null) {
             });
         }
     } else if (!project && date) {
-        
+        for (const projectNames in obj) {
+            // enter each project and loop all the todo objects in it
+            obj[projectNames].forEach(toDo => {
+                if (toDo["dueDate"] === date) {
+                    createLi(toDo);
+                    console.log("zzz")
+                }
+               
+                
+            });
+        }
     }
 
     console.log("test2 working!");

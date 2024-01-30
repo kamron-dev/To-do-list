@@ -143,15 +143,15 @@ label {
     margin-bottom: 5px;
 }
 
-.red-text {
+.very-important-text {
     color: red;
 }
 
-.blue-text {
+.important-text {
     color: blue;
 }
 
-.green-text {
+.not-important-text {
     color: green;
 }
 
