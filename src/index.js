@@ -3,15 +3,15 @@ import { handleDates, createButtonsForEachProjectOnSidebar, createDates, display
 // import { alertDate } from "./dates";
 
 // creating three new todos with createToDo function
-const newDo = createToDo("Milk", "Buy some milk for the cat", "01-30-2024", "very important");
-const anotherDo = createToDo("Writing", "Write some text to my book", "01-30-2024", "not important", true);
-const thirdToDo = createToDo("Buy cat food", "Buy some kitekat", "01-30-2024", "very important");
+// const newDo = createToDo("Milk", "Buy some milk for the cat", "01-29-2024", "very important");
+// const anotherDo = createToDo("Writing", "Write some text to my book", "01-29-2024", "not important", true);
+// const thirdToDo = createToDo("Buy cat food", "Buy some kitekat", "01-29-2024", "very important");
 
 
-// adding previously created todos to the object holding todos with the addToDoObj function
-addToDoObj(newDo);
-addToDoObj(anotherDo/*, e.g. home*/); // optional argument that specifies the project to put the to-do into
-addToDoObj(thirdToDo);
+// // adding previously created todos to the object holding todos with the addToDoObj function
+// addToDoObj(newDo);
+// addToDoObj(anotherDo/*, e.g. home*/); // optional argument that specifies the project to put the to-do into
+// addToDoObj(thirdToDo);
 
 
 (function createPage() {

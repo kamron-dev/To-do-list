@@ -283,7 +283,7 @@ export function handleDates(projects) {
     const nextWeekBtn = document.getElementById("next-week-to-dos");
     const mainDiv = document.getElementById("mainDiv");
     const h1 = document.getElementById("mainHeader");
-    const todayDate = format(Date.now(), "MM-dd-yyyy");
+    
     
     allBtn.addEventListener("click", () => {
         const ul = test2(projects, null, null);
@@ -296,10 +296,12 @@ export function handleDates(projects) {
     });
 
     todayBtn.addEventListener("click", () => {
-        h1.textContent = todayBtn.textContent;
-        mainDiv.innerHTML = "";
+        const todayDate = format(Date.now(), "MM-dd-yyyy");
         const ul = test2(projects, null, todayDate);
-        alert(todayDate)
+        mainDiv.innerHTML = "";
+        mainDiv.appendChild(ul);
+        h1.textContent = todayBtn.textContent;
+        alert(todayDate);
     })
 };
 
@@ -321,6 +323,18 @@ function test2(obj, project = null, date = null) {
         
         // looping through the toDo obj that is passed as the argument
         for (const key in toDo) {
+            if (["title", "desc", "dueDate"].includes(key) && toDo["dueDate"] === date) {
+                
+                // create a p element to hold the info
+                const p = document.createElement("p");
+                // putting the info from the above into the p
+                p.textContent = toDo[key];
+                //appending the ps as the li's child
+                li.appendChild(p);
+                console.log("dating is working1");
+                    
+                
+            };
             // if the key is title, desc, or dueDate
             if (["title", "desc", "dueDate"].includes(key)) {
                 // create a p element to hold the info
@@ -329,13 +343,14 @@ function test2(obj, project = null, date = null) {
                 p.textContent = toDo[key];
                 //appending the ps as the li's child
                 li.appendChild(p);
+                console.log("iterating is working1")
             };
             if (key === "priority") {
                 if (toDo[key] === "very important") li.classList.add("red-text");
                 if (toDo[key] === "important") li.classList.add("blue-text");
                 if (toDo[key] === "not important") li.classList.add("green-text");
                 
-            }
+            };
         }
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
@@ -369,6 +384,7 @@ function test2(obj, project = null, date = null) {
                 createLi(toDo);
             });
         }
+        console.log("no project no date is working!");
     
     // if only the project is specified and no date
     } else if (project && !date) {
@@ -380,11 +396,18 @@ function test2(obj, project = null, date = null) {
                 createLi(toDo);
             });
         }
+        console.log("no date is working!");
+
     } else if (!project && date) {
-        
+        for (const projectNames in obj) {
+            obj[projectNames].forEach(toDo => {
+                createLi(toDo, date);
+            });
+        }
+        console.log("today button working!");
     }
 
-    console.log("test2 working!");
+    
     return ul;
 };
 
