@@ -3,9 +3,9 @@ import { handleDates, createButtonsForEachProjectOnSidebar, createDates, display
 // import { alertDate } from "./dates";
 
 // creating three new todos with createToDo function
-const newDo = createToDo("Milk", "Buy some milk for the cat", "01-30-2024", "very-important");
-const anotherDo = createToDo("Writing", "Write some text to my book", "01-30-2024", "not-important", true);
-const thirdToDo = createToDo("Buy cat food", "Buy some kitekat", "01-31-2024", "very-important");
+const newDo = createToDo("Milk", "Buy some milk for the cat", "2024-01-30", "very-important");
+const anotherDo = createToDo("Writing", "Write some text to my book", "2024-01-30", "not-important", true);
+const thirdToDo = createToDo("Buy cat food", "Buy some kitekat", "2024-01-31", "very-important");
 
 
 // adding previously created todos to the object holding todos with the addToDoObj function

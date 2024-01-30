@@ -139,6 +139,7 @@ function addNewToDoBtn() {
         
         createElAndAppend("input-form", "input", {  //Title input
             "type": "text",
+            "placeholder": "e.g. Milk",
             "id": "title-input"
         });
 
@@ -151,7 +152,9 @@ function addNewToDoBtn() {
         
         createElAndAppend("input-form", "textarea", {
             "id": "desc-input",
-            "rows": "5"
+            "placeholder": "e.g. Buy some milk!",
+            "rows": "5",
+            "required": "true"
         });
 
         
@@ -227,8 +230,9 @@ function handleButtons() {
     const inputDiv = document.getElementById("input-Div");
 
     addButton.addEventListener("click", () => {
-        addToDoObj(createToDo(title.value, desc.value, dueDate.value = format(Date.now(), "MM-dd-yyyy"), priority.value), project.textContent);
+        addToDoObj(createToDo(title.value, desc.value, dueDate.value, priority.value), project.textContent);
         inputDiv.remove();
+        
     });
 
     cancelBtn.addEventListener("click", () => {
@@ -295,7 +299,7 @@ export function handleDates(projects) {
     });
 
     todayBtn.addEventListener("click", () => {
-        const todayDate = format(Date.now(), "MM-dd-yyyy");
+        const todayDate = format(Date.now(), "yyyy-MM-dd");
         const ul = test2(projects, null, todayDate);
         mainDiv.innerHTML = "";
         mainDiv.appendChild(ul);
