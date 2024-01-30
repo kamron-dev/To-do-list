@@ -283,7 +283,7 @@ export function handleDates(projects) {
     const nextWeekBtn = document.getElementById("next-week-to-dos");
     const mainDiv = document.getElementById("mainDiv");
     const h1 = document.getElementById("mainHeader");
-    
+    const todayDate = format(Date.now(), "MM-dd-yyyy");
     
     allBtn.addEventListener("click", () => {
         const ul = test2(projects, null, null);
@@ -294,6 +294,13 @@ export function handleDates(projects) {
         const buttonToRemove = document.getElementById("new-ToDo-btn");
         if (buttonToRemove) buttonToRemove.remove();
     });
+
+    todayBtn.addEventListener("click", () => {
+        h1.textContent = todayBtn.textContent;
+        mainDiv.innerHTML = "";
+        const ul = test2(projects, null, todayDate);
+        alert(todayDate)
+    })
 };
 
 function test2(obj, project = null, date = null) {
@@ -365,7 +372,7 @@ function test2(obj, project = null, date = null) {
     
     // if only the project is specified and no date
     } else if (project && !date) {
-        //check if the project passed as the argument is in the list 
+        //check if the project passed as the argument is in the obj 
         if (obj[project]) {
             // if it is loop through all the toDo objects in the project
             obj[project].forEach(toDo => {
@@ -373,6 +380,8 @@ function test2(obj, project = null, date = null) {
                 createLi(toDo);
             });
         }
+    } else if (!project && date) {
+        
     }
 
     console.log("test2 working!");
