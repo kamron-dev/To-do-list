@@ -31,8 +31,8 @@ export const addToDoObj = (toDo, project = "Default") => {
 // Function to add new projects
 
 export const addNewProject = (projectName) => {
-    toDosObj[projectName] = [];
-    return toDosObj;
+    localStorage.setItem(projectName, [])
+    
 }
 
 
