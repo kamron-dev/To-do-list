@@ -28,13 +28,6 @@ export const addToDoObj = (toDo, project = "Default") => {
     return toDosObj;
 };
 
-// Function to delete a to-do
-
-export const deleteToDo = (index, project) => {
-    toDosObj[project].splice(index, 1)
-    return toDosObj;
-}
-
 // Function to add new projects
 
 export const addNewProject = (projectName) => {

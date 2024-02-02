@@ -1,5 +1,5 @@
-import { toDosObj, addNewProject, addToDoObj, createToDo, deleteToDo } from "./createToDo";
-import { format } from "date-fns";
+import { toDosObj, addNewProject, addToDoObj, createToDo } from "./createToDo";
+import { format, add } from "date-fns";
 
 // Function to render the projects to the DOM as buttons (into the projects-div), exported to use in index.js
 export function createButtonsForEachProjectOnSidebar(projects) {
@@ -304,6 +304,12 @@ export function handleDates(projects) {
         mainDiv.innerHTML = "";
         mainDiv.appendChild(ul);
         h1.textContent = todayBtn.textContent;
+    });
+
+    nextWeekBtn.addEventListener("click", () => {
+        const todayDate = format(Date.now(), "yyyy-MM-dd");
+        const aWeek = add(todayDate, { days: 7 });
+        alert(format(aWeek, "yyyy-MM-dd"));
     })
 };
 
