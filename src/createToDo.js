@@ -1,5 +1,3 @@
-
-
 //Factory function that creates to-do objects
 export const createToDo = (title, desc, dueDate, priority = "important", completed = false) => {
     return {
@@ -31,7 +29,8 @@ export const addToDoObj = (toDo, project = "Default") => {
 // Function to add new projects
 
 export const addNewProject = (projectName) => {
-    localStorage.setItem(projectName, [])
+    toDosObj[projectName] = [];
+    return toDosObj;
     
 }
 

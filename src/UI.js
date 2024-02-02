@@ -1,5 +1,6 @@
 import { toDosObj, addNewProject, addToDoObj, createToDo } from "./createToDo";
 import { format, add } from "date-fns";
+import { updateLocalStorage } from "./localStorage";
 
 // Function to render the projects to the DOM as buttons (into the projects-div), exported to use in index.js
 export function createButtonsForEachProjectOnSidebar(projects) {
@@ -37,7 +38,7 @@ export function displayProjects(projects) {
             mainDiv.innerHTML = "";
             mainDiv.appendChild(ul);
             h1.textContent = button.textContent;
-            addNewToDoBtn();
+            addNewToDoBtn(projects);
         })
     })
 }
@@ -96,6 +97,7 @@ function handleNewProjects(projects) {
     addBtn.addEventListener("click", () => {
         const inputtedName = document.getElementById("project-input").value;
         addNewProject(inputtedName);
+        updateLocalStorage(projects);
         createButtonsForEachProjectOnSidebar(projects);
         displayProjects(projects);
     
@@ -110,7 +112,7 @@ function handleNewProjects(projects) {
     })
 };
 
-function addNewToDoBtn() {
+function addNewToDoBtn(projects) {
     const main = document.getElementById("main");
     let existingButton = document.getElementById("new-ToDo-btn");
 
@@ -209,7 +211,7 @@ function addNewToDoBtn() {
         });
         cancelBtn.textContent = "Cancel";
         
-        handleButtons();
+        handleButtons(projects);
 
     });
     }
@@ -217,7 +219,7 @@ function addNewToDoBtn() {
     
 };
 
-function handleButtons() {
+function handleButtons(projects) {
     const addButton = document.getElementById("addToDoBtn");
     const cancelBtn = document.getElementById("cancelBtn");
 
@@ -230,6 +232,7 @@ function handleButtons() {
 
     addButton.addEventListener("click", () => {
         addToDoObj(createToDo(title.value, desc.value, dueDate.value, priority.value), project.textContent);
+        updateLocalStorage(projects)
         inputDiv.remove();
         
     });

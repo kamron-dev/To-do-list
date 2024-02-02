@@ -16,7 +16,6 @@ addToDoObj(thirdToDo);
 
 (function createPage() {
     initLocalStorage(toDosObj);
-    //updateLocalStorage(toDosObj);
     createDates();
     handleDates(toDosObj);
     createButtonsForEachProjectOnSidebar(toDosObj);
