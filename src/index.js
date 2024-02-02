@@ -1,5 +1,4 @@
 import { createToDo, toDosObj, addToDoObj } from "./createToDo";
-import { createLocalStorage } from "./localStorage";
 import { handleDates, createButtonsForEachProjectOnSidebar, createDates, displayProjects } from "./UI";
 // import { alertDate } from "./dates";
 
@@ -16,7 +15,6 @@ addToDoObj(thirdToDo);
 
 
 (function createPage() {
-    createLocalStorage(toDosObj);
     createDates();
     handleDates(toDosObj);
     createButtonsForEachProjectOnSidebar(toDosObj);
