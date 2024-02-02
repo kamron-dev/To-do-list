@@ -96,7 +96,6 @@ function handleNewProjects(projects) {
     addBtn.addEventListener("click", () => {
         const inputtedName = document.getElementById("project-input").value;
         addNewProject(inputtedName);
-        console.table(toDosObj);
         createButtonsForEachProjectOnSidebar(projects);
         displayProjects(projects);
     

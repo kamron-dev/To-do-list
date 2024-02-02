@@ -1,6 +1,6 @@
 import { createToDo, toDosObj, addToDoObj } from "./createToDo";
+import { updateLocalStorage, initLocalStorage } from "./localStorage";
 import { handleDates, createButtonsForEachProjectOnSidebar, createDates, displayProjects } from "./UI";
-// import { alertDate } from "./dates";
 
 // creating three new todos with createToDo function
 const newDo = createToDo("Milk", "Buy some milk for the cat", "2024-01-30", "very-important");
@@ -15,6 +15,8 @@ addToDoObj(thirdToDo);
 
 
 (function createPage() {
+    initLocalStorage(toDosObj);
+    //updateLocalStorage(toDosObj);
     createDates();
     handleDates(toDosObj);
     createButtonsForEachProjectOnSidebar(toDosObj);
