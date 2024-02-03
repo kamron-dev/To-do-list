@@ -1,5 +1,4 @@
-import { createToDo, toDosObj, addToDoObj } from "./createToDo";
-import { updateLocalStorage, initLocalStorage } from "./localStorage";
+import toDosObj from "./createToDo";
 import { handleDates, createButtonsForEachProjectOnSidebar, createDates, displayProjects } from "./UI";
 
 // creating three new todos with createToDo function
@@ -15,6 +14,7 @@ addToDoObj(thirdToDo);
 
 
 (function createPage() {
+    console.table(toDosObj);
     if (!localStorage.length > 0) {
         for (const key in toDosObj) {
             localStorage.setItem(key, JSON.stringify(toDosObj[key]));
