@@ -13,7 +13,7 @@ export const createToDo = (title, desc, dueDate, priority = "important", complet
 
 // Obj that stores to-dos arrays and project names
 
-export const toDosObj = {
+export let toDosObj = {
     "Default": [],
     "Home": [],
     "Work": [],

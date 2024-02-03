@@ -15,7 +15,24 @@ addToDoObj(thirdToDo);
 
 
 (function createPage() {
-    initLocalStorage(toDosObj);
+    if (!localStorage.length > 0) {
+        for (const key in toDosObj) {
+            localStorage.setItem(key, JSON.stringify(toDosObj[key]));
+        };
+        alert("I saved the new data!")
+    } else {
+        let newObj = {};
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const storedValue = localStorage.getItem(key);
+
+            const parsedValue = JSON.parse(storedValue);
+            newObj[key] = parsedValue;
+        };
+
+        toDosObj = newObj;
+        alert("I got it from the localStorage!");
+    }
     createDates();
     handleDates(toDosObj);
     createButtonsForEachProjectOnSidebar(toDosObj);
