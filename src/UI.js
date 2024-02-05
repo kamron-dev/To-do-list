@@ -357,6 +357,7 @@ function test2(obj, project = null, date = null) {
                 targetProject.splice(index, 1);
                 //ul.removeChild(li);
                 li.remove();
+                updateLocalStorage(obj);
             }
         });
         li.appendChild(deleteButton);

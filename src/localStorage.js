@@ -1,4 +1,4 @@
-import { toDosObj } from "./createToDo";
+
 
 export function initLocalStorage(obj) {
     if (!localStorage.length > 0) {
