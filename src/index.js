@@ -18,7 +18,7 @@ import { handleDates, createButtonsForEachProjectOnSidebar, createDates, display
         for (const key in toDosObj) {
             localStorage.setItem(key, JSON.stringify(toDosObj[key]));
         };
-        alert("I saved the new data!")
+        //alert("I saved the new data!")
     } else {
         let newObj = {};
         for (let i = 0; i < localStorage.length; i++) {
@@ -30,7 +30,7 @@ import { handleDates, createButtonsForEachProjectOnSidebar, createDates, display
         };
 
         toDosObj = newObj;
-        alert("I got it from the localStorage!");
+        //alert("I got it from the localStorage!");
     }
     createDates();
     handleDates(toDosObj);

@@ -231,7 +231,8 @@ function handleButtons(projects) {
     const inputDiv = document.getElementById("input-Div");
 
     addButton.addEventListener("click", () => {
-        addToDoObj(createToDo(title.value, desc.value, dueDate.value, priority.value), project.textContent);
+        //if (!dueDate.value) dueDate.value = format(Date.now(), "yyyy-MM-dd");
+        addToDoObj(createToDo(title.value, desc.value, dueDate.value = format(Date.now(), "yyyy-MM-dd"), priority.value), project.textContent);
         updateLocalStorage(projects)
         inputDiv.remove();
         
